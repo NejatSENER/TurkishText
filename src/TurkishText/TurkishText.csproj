@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <PackageId>TurkishText</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Nejat Berk Şener</Authors>
+    <Description>Turkish text helpers that do not depend on the current culture or ICU: correct İ/ı casing, accent folding for search, URL slugs, and numbers and amounts in words (bin iki yüz otuz dört Türk lirası elli kuruş).</Description>
+    <PackageTags>turkish;turkce;slug;slugify;casing;dotted-i;search;normalization;number-to-words;invoice</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/NejatSENER/TurkishText</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/NejatSENER/TurkishText</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

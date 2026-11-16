@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/benchmarks/">
+    <Project Path="benchmarks/TurkishText.Benchmarks/TurkishText.Benchmarks.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/TurkishText/TurkishText.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/TurkishText.Tests/TurkishText.Tests.csproj" />
+  </Folder>
+</Solution>
