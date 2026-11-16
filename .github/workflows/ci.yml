@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Build
+        run: dotnet build TurkishText.slnx -c Release
+
+      - name: Test
+        run: dotnet test tests/TurkishText.Tests -c Release --no-build
+
+      - name: Test with invariant globalization (no ICU)
+        run: dotnet test tests/TurkishText.Tests -c Release --no-build
+        env:
+          DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: "1"
+
+      - name: Pack
+        run: dotnet pack src/TurkishText -c Release --no-build -o artifacts
